@@ -26,3 +26,7 @@ def index():
 
     messages = Message.query.order_by(Message.timestamp.desc()).all()
     return render_template('index.html', form=form, messages=messages)
+
+@app.shell_context_processor
+def shell_context():
+    return dict(db=db)
